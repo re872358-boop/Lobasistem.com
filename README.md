@@ -1,4 +1,5 @@
-# <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -9,118 +10,214 @@
 </head>
 <body class="bg-[#020617] text-slate-300 antialiased overflow-x-hidden">
 
-    <header class="fixed top-0 w-full z-[120] glass-premium px-6 py-4 flex justify-between items-center border-b border-white/5">
-        <div class="flex items-center gap-4">
-            <button onclick="toggleMenu()" class="flex flex-col gap-1.5 focus:outline-none">
-                <div class="w-5 h-0.5 bg-white"></div>
-                <div class="w-3 h-0.5 bg-blue-500"></div>
-                <div class="w-5 h-0.5 bg-white"></div>
-            </button>
-            <div class="text-[10px] font-black tracking-[0.2em] text-white uppercase italic">
-                NICOLÁS <span class="text-blue-500 italic text-[11px] ml-1">♊</span>
-            </div>
+    <header class="fixed top-0 w-full z-50 glass-premium px-6 py-4 flex justify-between items-center border-b border-white/5">
+        <div class="text-[10px] font-black tracking-[0.2em] text-white">
+            NICOLÁS <span class="text-blue-500 italic">♊ LOBA v2.5</span>
         </div>
-        <div class="flex items-center gap-2">
-            <span class="text-[7px] font-bold text-emerald-500 uppercase tracking-tighter">Sistemas Activos</span>
-            <div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]"></div>
-        </div>
+        <div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]"></div>
     </header>
 
-    <nav id="side-menu" class="fixed inset-y-0 left-0 w-64 bg-[#020617]/98 backdrop-blur-3xl z-[130] -translate-x-full transition-transform duration-300 border-r border-white/10 shadow-2xl">
-        <div class="p-8 space-y-6 pt-24">
-            <div class="text-[9px] text-blue-500 font-mono tracking-widest uppercase mb-8 italic border-b border-blue-500/20 pb-2">Admin_Terminal_v4</div>
-            <a href="#" class="block text-xs font-black tracking-widest text-white uppercase italic hover:text-blue-400 transition-colors">Módulos Activos</a>
-            <a href="#" class="block text-xs font-bold tracking-widest text-slate-400 uppercase hover:text-white transition-colors">Consultoría</a>
-            <div class="pt-10 border-t border-white/5">
-                <button onclick="accesoAdmin()" class="text-[10px] text-slate-600 font-mono italic hover:text-slate-400">Acceso Búnker _</button>
-            </div>
-        </div>
-    </nav>
-
-    <main class="pt-[85px]">
+    <main class="pt-[60px]">
         <section class="relative h-[35vh] w-full overflow-hidden bg-slate-900">
-            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000" 
-                 class="w-full h-full object-cover opacity-40 scale-110" alt="Neural Core">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-black/60"></div>
-            <div class="absolute bottom-8 left-6 animate-fade-in pr-6">
-                <p class="text-blue-400 font-mono text-[9px] uppercase tracking-widest mb-2 italic">Análisis de Red Completo</p>
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000" 
+                 class="w-full h-full object-cover opacity-60" alt="Core Network">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-black/40"></div>
+            <div class="absolute bottom-6 left-6">
                 <h1 class="text-3xl font-black text-white italic tracking-tighter leading-none">
-                    ¡HOLA! <br> <span class="text-blue-500 uppercase">¿Qué vamos a auditar hoy?</span>
+                    SISTEMA <br> <span class="text-blue-500">AUTÓNOMO</span>
                 </h1>
             </div>
         </section>
 
-        <section class="px-4 py-8">
-            <h2 class="text-slate-500 font-mono text-[9px] tracking-[0.5em] uppercase text-center mb-6 italic">Visual Showcase_Core</h2>
+        <section class="px-4 py-8 space-y-6">
+            <h2 class="text-blue-500 font-mono text-[9px] tracking-[0.5em] uppercase text-center mb-4">Portfolio de Soluciones</h2>
             
-            <div class="grid grid-cols-2 gap-3 mb-8">
-                <div class="glass-premium rounded-2xl overflow-hidden group relative aspect-[4/5] border border-white/5">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-3 left-3">
-                        <p class="text-[8px] font-black text-white italic uppercase">Gaming Engine</p>
-                        <p class="text-[6px] text-blue-400 font-mono uppercase">Ejecución_VOD</p>
-                    </div>
-                </div>
-
-                <div class="glass-premium rounded-2xl overflow-hidden group relative aspect-[4/5] border border-white/5">
-                    <img src="https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-3 left-3">
-                        <p class="text-[8px] font-black text-white italic uppercase">Gestión Pro</p>
-                        <p class="text-[6px] text-emerald-400 font-mono uppercase">Live_Audit</p>
-                    </div>
-                </div>
+            <div class="glass-premium p-5 rounded-3xl border-l-4 border-l-blue-500">
+                <h4 class="text-white font-black italic text-sm mb-1">GAMING ENGINE v1.0</h4>
+                <p class="text-[11px] text-slate-400 leading-relaxed">Software de entretenimiento de alta performance para entornos móviles.</p>
             </div>
 
-            <div class="space-y-4">
-                <div class="glass-premium p-5 rounded-3xl border-l-4 border-l-blue-500 animate-fade-in hover:bg-white/5 transition-colors">
-                    <div class="flex justify-between items-center mb-1">
-                        <h4 class="text-white font-black italic text-sm uppercase">Gaming Engine</h4>
-                        <span class="text-[7px] font-mono text-blue-500 bg-blue-500/10 px-2 py-0.5 rounded-full uppercase">Optimized</span>
-                    </div>
-                    <p class="text-[11px] text-slate-400">Optimización C++ para entornos móviles de alta carga y latencia cero.</p>
+            <div class="glass-premium p-5 rounded-3xl border-l-4 border-l-emerald-500">
+                <h4 class="text-white font-black italic text-sm mb-1">GESTIÓN PRO</h4>
+                <p class="text-[11px] text-slate-400 leading-relaxed">Sistemas de administración financiera y control de activos en tiempo real.</p>
+            </div>
+        </section>
+
+        <section class="px-4 mb-8">
+            <div class="glass-premium rounded-[2rem] overflow-hidden border border-blue-500/20">
+                <div class="bg-blue-500/10 px-6 py-3 border-b border-white/5 flex items-center gap-3">
+                    <div class="h-1.5 w-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+                    <span class="text-[8px] font-mono text-blue-400 tracking-widest uppercase">Loba_Neural_Agent_v2.5</span>
                 </div>
-                <div class="glass-premium p-5 rounded-3xl border-l-4 border-l-emerald-500 animate-fade-in hover:bg-white/5 transition-colors">
-                    <div class="flex justify-between items-center mb-1">
-                        <h4 class="text-white font-black italic text-sm uppercase">GESTIÓN PRO</h4>
-                        <span class="text-[7px] font-mono text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase">Verified</span>
+                
+                <div id="chat-window" class="h-40 overflow-y-auto p-5 space-y-3 text-[10px] font-mono leading-relaxed">
+                    <div class="text-blue-300">
+                        <span class="text-blue-500">>></span> Bienvenido al Búnker. Iniciando protocolo de asesoría estratégica... ¿En qué área necesitas potenciar tu estructura?
                     </div>
-                    <p class="text-[11px] text-slate-400">Administración financiera privada y auditoría técnica de activos digitales.</p>
+                </div>
+
+                <div class="p-4 bg-black/40 border-t border-white/5 flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Consultar sobre Juegos o Gestión..." 
+                           class="flex-1 bg-transparent border-none text-[11px] text-white focus:outline-none">
+                    <button id="send-chat" class="text-blue-500 font-bold text-[10px] uppercase">Enviar</button>
                 </div>
             </div>
         </section>
 
         <section class="px-4 pb-12">
-            <div class="glass-premium rounded-[2.5rem] overflow-hidden border border-blue-500/10">
-                <div id="chat-window" class="p-6 space-y-4">
-                    <div class="text-[10px] font-mono text-blue-300">
-                        <span class="text-blue-500 font-black tracking-widest italic">IA >></span> Para priorizar su atención en el búnker, complete el fichero técnico de auditoría:
-                    </div>
-                    
-                    <div id="fichero-tecnico" class="space-y-3 bg-black/40 p-5 rounded-3xl border border-white/5">
-                        <input type="text" id="lead-nombre" placeholder="NOMBRE COMPLETO" class="input-glass w-full text-[11px] font-bold">
-                        <input type="email" id="lead-correo" placeholder="CORREO CORPORATIVO" class="input-glass w-full text-[11px] font-bold">
-                        <input type="tel" id="lead-cel" placeholder="NÚMERO DE CELULAR" class="input-glass w-full text-[11px] font-bold">
-                        <select id="lead-software" class="input-glass w-full text-[11px] bg-[#0f172a] font-bold text-slate-500 appearance-none">
-                            <option value="" disabled selected>SELECCIONAR SOFTWARE...</option>
-                            <option value="Juegos">Gaming Engine</option>
-                            <option value="Gestion">Sistema de Gestión</option>
-                        </select>
-                        <button onclick="registrarPedido()" class="btn-primary w-full text-[10px] py-4 mt-2 font-black uppercase tracking-[0.2em] italic">
-                            Confirmar Entrada en Cola
-                        </button>
-                    </div>
-                </div>
+            <div class="glass-premium p-6 rounded-[2.5rem]">
+                <h3 class="text-white font-bold text-center mb-6 tracking-widest text-[9px] uppercase">Confirmar Adquisición</h3>
+                <form id="order-form" class="space-y-4">
+                    <input type="text" placeholder="Tu Nombre" class="w-full input-glass text-xs">
+                    <select id="product-select" class="w-full input-glass text-xs bg-slate-900">
+                        <option value="" disabled selected>Elegir producto...</option>
+                        <option value="juegos">Gaming Engine v1.0</option>
+                        <option value="gestion">Sistema Gestión Pro</option>
+                    </select>
+                    <button type="button" class="w-full btn-primary text-[10px] py-4">SOLICITAR AUDITORÍA</button>
+                </form>
             </div>
-            <p class="text-[9px] text-slate-600 text-center mt-6 px-10 leading-relaxed italic">
-                * Al confirmar, se generará un fichero neural para priorizar su atención técnica.
-            </p>
         </section>
     </main>
 
-    <div id="overlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/80 z-[115] hidden backdrop-blur-sm"></div>
     <script src="script.js/javscrip.js"></script>
 </body>
-</html> 
-  
+</html>
+
+const chatInput = document.getElementById('chat-input');
+const chatWindow = document.getElementById('chat-window');
+const sendBtn = document.getElementById('send-chat');
+
+const iaResponses = {
+    "juegos": "Nuestros Gaming Engines están optimizados para Android con C++ y baja latencia. El precio es bajo presupuesto y la demora es de 15 días. ¿Te interesa una auditoría?",
+    "gestion": "El Sistema de Gestión Pro maneja intereses, cobros y stock en tiempo real. Se instala en 7 días y es 100% privado (IndexedDB).",
+    "hola": "Saludos, Arquitecto. Soy el Agente Neural de Nicolás. ¿Buscas asesoramiento en Juegos, Gestión o Seguridad?"
+};
+
+function addMessage(text, isUser = false) {
+    const msg = document.createElement('div');
+    msg.innerHTML = `<span class="${isUser ? 'text-emerald-400' : 'text-blue-500'}">${isUser ? '> User:' : '>> IA:'}</span> ${text}`;
+    chatWindow.appendChild(msg);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+sendBtn.onclick = () => {
+    const prompt = chatInput.value.toLowerCase();
+    if (!prompt) return;
+
+    addMessage(chatInput.value, true);
+    chatInput.value = '';
+
+    setTimeout(() => {
+        let response = "Análisis completado. No detecto ese módulo en el inventario actual. ¿Podrías ser más específico sobre Juegos o Gestión?";
+        
+        if (prompt.includes("juego")) response = iaResponses.juegos;
+        else if (prompt.includes("gestion") || prompt.includes("prestamo")) response = iaResponses.gestion;
+        else if (prompt.includes("hola")) response = iaResponses.hola;
+
+        addMessage(response);
+    }, 800);
+};
+
+
+/* LOBA ENTERPRISE - CORE STYLES v2.5
+   Optimized for Xiaomi Redmi Note 13 (23100RN82L)
+*/
+
+:root {
+    --bg-main: #020617;
+    --enterprise: #3b82f6; /* Azul moderno */
+    --loba-pink: #f43f5e;   /* Rosa/Rojo para alertas */
+    --glass: rgba(15, 23, 42, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Reseteo Senior */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-main);
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #cbd5e1;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Efecto Glassmorphism Premium */
+.glass-premium {
+    background: var(--glass);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Animaciones para 120Hz */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Gradientes de Fondo para dar Profundidad */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(244, 63, 94, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Inputs con estilo Terminal/Enterprise */
+.input-glass {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    padding: 1rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.input-glass:focus {
+    outline: none;
+    border-color: var(--enterprise);
+    background: rgba(59, 130, 246, 0.05);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+/* Botones con respuesta táctil */
+.btn-primary {
+    background: var(--enterprise);
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: transform 0.1s active;
+    text-align: center;
+}
+
+.btn-primary:active {
+    transform: scale(0.96);
+    filter: brightness(1.2);
+}
+
+/* Scrollbar invisible para estética limpia */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
