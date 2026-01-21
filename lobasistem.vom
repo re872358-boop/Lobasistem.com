@@ -225,4 +225,4 @@
         document.querySelectorAll('.card-reveal').forEach(card => observer.observe(card));
     </script>
 </body>
-</html> 
+</html>  
