@@ -1,3 +1,5 @@
+l
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,7 +15,7 @@
         }
         .animate-slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         
-        .glass-premium { 
+        .glass-premium {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
