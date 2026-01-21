@@ -1,224 +1,228 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>LOBA Enterprise | Neural System</title>
+    
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body class="bg-[#020617] text-slate-300 antialiased overflow-x-hidden">
+    
+    <style>
+        /* Configuración de variables de diseño Senior */
+        :root {
+            --blue-glow: rgba(59, 130, 246, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
 
-    <header class="fixed top-0 w-full z-50 glass-premium px-6 py-4 flex justify-between items-center border-b border-white/5">
-        <div class="text-[10px] font-black tracking-[0.2em] text-white">
-            NICOLÁS <span class="text-blue-500 italic">♊ LOBA v2.5</span>
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .animate-slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* Fachada: Glassmorphism Ultra-Premium */
+        .glass-premium {
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            position: relative;
+        }
+
+        /* El brillo perimetral de fibra óptica para el "Coso Ovalado" */
+        .bunker-glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), inset 0 0 10px rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.3) !important;
+        }
+
+        /* Micro-animación de entrada para las cards */
+        .card-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilización de inputs para evitar zoom en iOS y mantener estética */
+        .input-bunker {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 16px !important; /* Fix zoom iOS */
+            transition: all 0.3s ease;
+        }
+        @media (min-width: 768px) { .input-bunker { font-size: 11px !important; } }
+        
+        .input-bunker:focus {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.05);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Scrollbar invisible pero funcional */
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+    </style>
+</head>
+<body class="bg-[#020617] text-slate-300 antialiased overflow-x-hidden selection:bg-blue-500/30">
+
+    <header id="main-header" class="fixed top-0 w-full z-[120] glass-premium px-6 py-4 flex justify-between items-center border-b border-white/5 transition-all duration-500">
+        <div class="flex items-center gap-4">
+            <button onclick="toggleMenu()" class="flex flex-col gap-1.5 focus:outline-none group">
+                <div class="w-5 h-0.5 bg-white group-hover:w-6 transition-all"></div>
+                <div class="w-3 h-0.5 bg-blue-500 group-hover:w-6 transition-all"></div>
+                <div class="w-5 h-0.5 bg-white group-hover:w-6 transition-all"></div>
+            </button>
+            <div class="text-[10px] font-black tracking-[0.2em] text-white uppercase italic">
+                NICOLÁS <span class="text-blue-500 italic text-[11px] ml-1">♊</span>
+            </div>
         </div>
-        <div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]"></div>
+        <div class="flex items-center gap-4">
+            <div class="h-6 w-6 rounded-full border border-white/10 flex items-center justify-center text-[10px] font-bold text-slate-500 cursor-help" title="Neural Link Active">?</div>
+            <div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></div>
+        </div>
     </header>
 
-    <main class="pt-[60px]">
-        <section class="relative h-[35vh] w-full overflow-hidden bg-slate-900">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000" 
-                 class="w-full h-full object-cover opacity-60" alt="Core Network">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-black/40"></div>
-            <div class="absolute bottom-6 left-6">
-                <h1 class="text-3xl font-black text-white italic tracking-tighter leading-none">
-                    SISTEMA <br> <span class="text-blue-500">AUTÓNOMO</span>
+    <nav id="side-menu" class="fixed inset-y-0 left-0 w-72 bg-[#020617]/95 backdrop-blur-3xl z-[130] -translate-x-full transition-transform duration-500 border-r border-blue-500/10 shadow-2xl">
+        <div class="p-8 space-y-8 pt-24">
+            <div class="text-[9px] text-blue-500 font-mono tracking-[0.3em] uppercase mb-8 italic border-b border-blue-500/20 pb-4">
+                CORE_SYSTEM_v4.0
+            </div>
+            <div class="flex flex-col gap-6">
+                <a href="#" class="group flex items-center gap-3 text-xs font-black tracking-widest text-white uppercase italic">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
+                    Módulos Activos
+                </a>
+                <a href="#" class="group flex items-center gap-3 text-xs font-bold tracking-widest text-slate-400 uppercase hover:text-white transition-colors">
+                    Consultoría Técnica
+                </a>
+                <a href="#" class="group flex items-center gap-3 text-xs font-bold tracking-widest text-slate-400 uppercase hover:text-white transition-colors">
+                    Auditoría Red
+                </a>
+            </div>
+            <div class="pt-10 border-t border-white/5">
+                <button class="text-[10px] text-slate-600 font-mono italic hover:text-blue-400 transition-colors">
+                    REBOOT_SESSION_
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-[72px]">
+        <section class="relative h-[40vh] w-full overflow-hidden bg-slate-950">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000" 
+                 class="w-full h-full object-cover opacity-30 scale-105" alt="Neural Core">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/20 to-transparent"></div>
+            <div class="absolute bottom-10 left-6 pr-6">
+                <p class="text-blue-500 font-mono text-[9px] uppercase tracking-[0.4em] mb-3 italic animate-pulse">Status: Online</p>
+                <h1 class="text-4xl font-black text-white italic tracking-tighter leading-none uppercase">
+                    ¿Qué vamos a <br> <span class="text-blue-600">auditar hoy?</span>
                 </h1>
             </div>
         </section>
 
-        <section class="px-4 py-8 space-y-6">
-            <h2 class="text-blue-500 font-mono text-[9px] tracking-[0.5em] uppercase text-center mb-4">Portfolio de Soluciones</h2>
-            
-            <div class="glass-premium p-5 rounded-3xl border-l-4 border-l-blue-500">
-                <h4 class="text-white font-black italic text-sm mb-1">GAMING ENGINE v1.0</h4>
-                <p class="text-[11px] text-slate-400 leading-relaxed">Software de entretenimiento de alta performance para entornos móviles.</p>
-            </div>
-
-            <div class="glass-premium p-5 rounded-3xl border-l-4 border-l-emerald-500">
-                <h4 class="text-white font-black italic text-sm mb-1">GESTIÓN PRO</h4>
-                <p class="text-[11px] text-slate-400 leading-relaxed">Sistemas de administración financiera y control de activos en tiempo real.</p>
-            </div>
-        </section>
-
-        <section class="px-4 mb-8">
-            <div class="glass-premium rounded-[2rem] overflow-hidden border border-blue-500/20">
-                <div class="bg-blue-500/10 px-6 py-3 border-b border-white/5 flex items-center gap-3">
-                    <div class="h-1.5 w-1.5 bg-blue-500 rounded-full animate-pulse"></div>
-                    <span class="text-[8px] font-mono text-blue-400 tracking-widest uppercase">Loba_Neural_Agent_v2.5</span>
-                </div>
-                
-                <div id="chat-window" class="h-40 overflow-y-auto p-5 space-y-3 text-[10px] font-mono leading-relaxed">
-                    <div class="text-blue-300">
-                        <span class="text-blue-500">>></span> Bienvenido al Búnker. Iniciando protocolo de asesoría estratégica... ¿En qué área necesitas potenciar tu estructura?
+        <section class="px-6 py-10 space-y-12">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass-premium rounded-3xl overflow-hidden aspect-[4/5] card-reveal group">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <p class="text-[9px] font-black text-white italic uppercase tracking-widest">Gaming Engine</p>
                     </div>
                 </div>
-
-                <div class="p-4 bg-black/40 border-t border-white/5 flex gap-2">
-                    <input type="text" id="chat-input" placeholder="Consultar sobre Juegos o Gestión..." 
-                           class="flex-1 bg-transparent border-none text-[11px] text-white focus:outline-none">
-                    <button id="send-chat" class="text-blue-500 font-bold text-[10px] uppercase">Enviar</button>
+                <div class="glass-premium rounded-3xl overflow-hidden aspect-[4/5] card-reveal group">
+                    <img src="https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <p class="text-[9px] font-black text-white italic uppercase tracking-widest">Gestión Pro</p>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section class="px-4 pb-12">
-            <div class="glass-premium p-6 rounded-[2.5rem]">
-                <h3 class="text-white font-bold text-center mb-6 tracking-widest text-[9px] uppercase">Confirmar Adquisición</h3>
-                <form id="order-form" class="space-y-4">
-                    <input type="text" placeholder="Tu Nombre" class="w-full input-glass text-xs">
-                    <select id="product-select" class="w-full input-glass text-xs bg-slate-900">
-                        <option value="" disabled selected>Elegir producto...</option>
-                        <option value="juegos">Gaming Engine v1.0</option>
-                        <option value="gestion">Sistema Gestión Pro</option>
-                    </select>
-                    <button type="button" class="w-full btn-primary text-[10px] py-4">SOLICITAR AUDITORÍA</button>
-                </form>
+            <div class="space-y-4">
+                <div class="glass-premium p-6 rounded-[2rem] border-l-4 border-l-blue-600 card-reveal">
+                    <h4 class="text-white font-black italic text-sm uppercase mb-1 tracking-widest">Gaming Engine</h4>
+                    <p class="text-[11px] text-slate-500 font-medium">Optimización C++ para entornos móviles de alta carga y baja latencia.</p>
+                </div>
+                <div class="glass-premium p-6 rounded-[2rem] border-l-4 border-l-emerald-600 card-reveal">
+                    <h4 class="text-white font-black italic text-sm uppercase mb-1 tracking-widest">GESTIÓN PRO</h4>
+                    <p class="text-[11px] text-slate-500 font-medium">Administración financiera privada y auditoría técnica de sistemas cerrados.</p>
+                </div>
+            </div>
+
+            <div class="pb-10 card-reveal">
+                <button onclick="toggleChat()" class="w-full py-6 bg-blue-600/10 border border-blue-500/30 rounded-3xl text-[11px] font-black text-white uppercase tracking-[0.3em] italic backdrop-blur-md hover:bg-blue-600/20 active:scale-[0.98] transition-all shadow-[0_0_40px_rgba(59,130,246,0.1)]">
+                    Solicitar Acceso Búnker _
+                </button>
             </div>
         </section>
+
+        <div id="chat-container" class="fixed inset-0 z-[150] hidden flex items-center justify-center p-6">
+            <div class="absolute inset-0 bg-[#020617]/90 backdrop-blur-md" onclick="toggleChat()"></div>
+            <div class="glass-premium bunker-glow w-full max-w-[400px] rounded-[3.5rem] overflow-hidden animate-slide-up relative z-[10]">
+                <div class="p-10 space-y-8">
+                    <div class="flex justify-between items-center border-b border-white/5 pb-6">
+                        <div class="text-[10px] font-mono text-blue-400 uppercase italic tracking-tighter">
+                            <span class="text-blue-600 font-black mr-2">>>></span> Autenticando...
+                        </div>
+                        <button onclick="toggleChat()" class="text-slate-600 text-[10px] font-black uppercase hover:text-white transition-colors">SALIR</button>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <input type="text" placeholder="IDENTIDAD" class="input-bunker w-full font-bold p-5 rounded-2xl text-white outline-none uppercase placeholder:text-slate-700">
+                        <input type="email" placeholder="CANAL_ENLACE (EMAIL)" class="input-bunker w-full font-bold p-5 rounded-2xl text-white outline-none uppercase placeholder:text-slate-700">
+                        <select class="input-bunker w-full bg-[#020617] font-bold text-slate-400 p-5 rounded-2xl outline-none appearance-none uppercase">
+                            <option value="" disabled selected>MÓDULO DE INTERÉS...</option>
+                            <option value="Juegos">Gaming Engine</option>
+                            <option value="Gestion">Sistema de Gestión</option>
+                        </select>
+                        <button class="w-full py-6 mt-6 font-black text-[12px] uppercase tracking-[0.3em] bg-blue-600 text-white rounded-2xl shadow-2xl shadow-blue-900/40 active:scale-95 italic">
+                            ENVIAR AL BÚNKER
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <script src="script.js/javscrip.js"></script>
+    <div id="overlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/60 z-[115] hidden backdrop-blur-sm"></div>
+
+    <script>
+        // Lógica de Interfaz y Micro-interacciones
+        function toggleMenu() {
+            document.getElementById('side-menu').classList.toggle('-translate-x-full');
+            document.getElementById('overlay').classList.toggle('hidden');
+        }
+
+        function toggleChat() {
+            const chat = document.getElementById('chat-container');
+            chat.classList.toggle('hidden');
+        }
+
+        // Efecto Header OnScroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 20) {
+                header.style.padding = "12px 24px";
+                header.style.backgroundColor = "rgba(2, 6, 23, 0.9)";
+            } else {
+                header.style.padding = "16px 24px";
+                header.style.backgroundColor = "rgba(2, 6, 23, 0.7)";
+            }
+        });
+
+        // Intersection Observer para las cards (Efecto Reveal)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card-reveal').forEach(card => observer.observe(card));
+    </script>
 </body>
-</html>
-
-const chatInput = document.getElementById('chat-input');
-const chatWindow = document.getElementById('chat-window');
-const sendBtn = document.getElementById('send-chat');
-
-const iaResponses = {
-    "juegos": "Nuestros Gaming Engines están optimizados para Android con C++ y baja latencia. El precio es bajo presupuesto y la demora es de 15 días. ¿Te interesa una auditoría?",
-    "gestion": "El Sistema de Gestión Pro maneja intereses, cobros y stock en tiempo real. Se instala en 7 días y es 100% privado (IndexedDB).",
-    "hola": "Saludos, Arquitecto. Soy el Agente Neural de Nicolás. ¿Buscas asesoramiento en Juegos, Gestión o Seguridad?"
-};
-
-function addMessage(text, isUser = false) {
-    const msg = document.createElement('div');
-    msg.innerHTML = `<span class="${isUser ? 'text-emerald-400' : 'text-blue-500'}">${isUser ? '> User:' : '>> IA:'}</span> ${text}`;
-    chatWindow.appendChild(msg);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-}
-
-sendBtn.onclick = () => {
-    const prompt = chatInput.value.toLowerCase();
-    if (!prompt) return;
-
-    addMessage(chatInput.value, true);
-    chatInput.value = '';
-
-    setTimeout(() => {
-        let response = "Análisis completado. No detecto ese módulo en el inventario actual. ¿Podrías ser más específico sobre Juegos o Gestión?";
-        
-        if (prompt.includes("juego")) response = iaResponses.juegos;
-        else if (prompt.includes("gestion") || prompt.includes("prestamo")) response = iaResponses.gestion;
-        else if (prompt.includes("hola")) response = iaResponses.hola;
-
-        addMessage(response);
-    }, 800);
-};
-
-
-/* LOBA ENTERPRISE - CORE STYLES v2.5
-   Optimized for Xiaomi Redmi Note 13 (23100RN82L)
-*/
-
-:root {
-    --bg-main: #020617;
-    --enterprise: #3b82f6; /* Azul moderno */
-    --loba-pink: #f43f5e;   /* Rosa/Rojo para alertas */
-    --glass: rgba(15, 23, 42, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.08);
-}
-
-/* Reseteo Senior */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
-
-body {
-    background-color: var(--bg-main);
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: #cbd5e1;
-    line-height: 1.5;
-    overflow-x: hidden;
-}
-
-/* Efecto Glassmorphism Premium */
-.glass-premium {
-    background: var(--glass);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
-/* Animaciones para 120Hz */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Gradientes de Fondo para dar Profundidad */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(244, 63, 94, 0.03) 0%, transparent 40%);
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* Inputs con estilo Terminal/Enterprise */
-.input-glass {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--glass-border);
-    border-radius: 1rem;
-    padding: 1rem;
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.input-glass:focus {
-    outline: none;
-    border-color: var(--enterprise);
-    background: rgba(59, 130, 246, 0.05);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-}
-
-/* Botones con respuesta táctil */
-.btn-primary {
-    background: var(--enterprise);
-    color: white;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 1rem;
-    border-radius: 1rem;
-    transition: transform 0.1s active;
-    text-align: center;
-}
-
-.btn-primary:active {
-    transform: scale(0.96);
-    filter: brightness(1.2);
-}
-
-/* Scrollbar invisible para estética limpia */
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-}
- 
+</html>  
