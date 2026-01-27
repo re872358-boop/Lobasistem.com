@@ -1,14 +1,12 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>LOBA Enterprise | Neural System</title>
-    
+
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    
+
     <style>
         /* Configuración de variables de diseño Senior */
         :root {
@@ -57,7 +55,7 @@
             transition: all 0.3s ease;
         }
         @media (min-width: 768px) { .input-bunker { font-size: 11px !important; } }
-        
+
         .input-bunker:focus {
             border-color: #3b82f6;
             background: rgba(59, 130, 246, 0.05);
@@ -171,7 +169,7 @@
                         </div>
                         <button onclick="toggleChat()" class="text-slate-600 text-[10px] font-black uppercase hover:text-white transition-colors">SALIR</button>
                     </div>
-                    
+
                     <div class="space-y-4">
                         <input type="text" placeholder="IDENTIDAD" class="input-bunker w-full font-bold p-5 rounded-2xl text-white outline-none uppercase placeholder:text-slate-700">
                         <input type="email" placeholder="CANAL_ENLACE (EMAIL)" class="input-bunker w-full font-bold p-5 rounded-2xl text-white outline-none uppercase placeholder:text-slate-700">
@@ -227,4 +225,4 @@
         document.querySelectorAll('.card-reveal').forEach(card => observer.observe(card));
     </script>
 </body>
-</html> 
+</html>  
